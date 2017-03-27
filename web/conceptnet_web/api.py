@@ -30,7 +30,8 @@ app.config['JSON_AS_ASCII'] = False
 for filter_name, filter_func in FILTERS.items():
     app.jinja_env.filters[filter_name] = filter_func
 app.jinja_env.add_extension('jinja2_highlight.HighlightExtension')
-limiter = Limiter(app, global_limits=["600 per minute", "6000 per hour"])
+#limiter = Limiter(app, global_limits=["600 per minute", "6000 per hour"])
+limiter = Limiter(app, global_limits=[])
 CORS(app)
 application = app  # for uWSGI
 
